@@ -1,6 +1,5 @@
 _*
-.*
-!.git*
+.DS_Store
 $
 in
 out

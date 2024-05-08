@@ -1,4 +1,4 @@
-count: 84
+count: 104
 completion:
   C3P01         : 100.
   C3P02         :   0
@@ -36,6 +36,23 @@ completion:
   C3P34         :   0
   C3P35         :   0
   C3P36         :   0
+  C3P37         : 100.
+  C3P38         :  10
+  C3P39         :  60
+  C3P40         : 100.
+  C3P41         : 100.
+  C3P42         : 100.
+  C3P43         : 100.
+  C3P44         : 100.
+  C3P45         :  60
+  C3P46         :  70
+  C3P47         :   0
+  C3P48         :   0
+  C3P49         :  60
+  C3P50         : 100.
+  C3P51         : 100.
+  C3P52         : 100.
+  C3P53         :  70
   COCI1516C1P1  :   0
   COCI1516C1P2  :   0
   COCI1516C1P3  :   0
@@ -67,6 +84,9 @@ completion:
   JOI2122P3     :   0
   JOI2122P4     :   0
   JOI2122P5     :   0
+  MCO2023-01    :   0
+  MCO2023-02    :   0
+  MCO2023-03    :   0
   USACO19JAN01  : 100.
   USACO19JAN02  : 100.
   USACO19JAN03  : 100.
