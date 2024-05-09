@@ -1,5 +1,7 @@
-_*
+.temp*
 .DS_Store
 $
 in
 out
+main.cpp
+.main
