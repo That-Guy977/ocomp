@@ -1,4 +1,4 @@
-count: 104
+count: 108
 completion:
   C3P01         : 100.
   C3P02         :   0
@@ -87,9 +87,6 @@ completion:
   MCO2023-01    :   0
   MCO2023-02    :   0
   MCO2023-03    :   0
-  USACO19JAN01  : 100.
-  USACO19JAN02  : 100.
-  USACO19JAN03  : 100.
   toi18d1p1     :   0
   toi18d1p2     :   0
   toi18d1p3     :   0
@@ -104,6 +101,13 @@ completion:
   toi19d2p1     :   0
   toi19d2p2     :   0
   toi19d2p3     :   0
+  USACO19JAN01  : 100.
+  USACO19JAN02  : 100.
+  USACO19JAN03  : 100.
+  USACO19JANG03 :   0
+  USACO21FEBG01 :   0
+  USACO21FEBG02 :   0
+  USACO21JANG02 :   0
 search:
   =.  : "(\w+) *: *\d+(?=\.$)"
   !0. : "(\w+) *: *(?!0$)\d+$"
