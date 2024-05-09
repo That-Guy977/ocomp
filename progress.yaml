@@ -107,7 +107,7 @@ completion:
   USACO19JANG03 :   0
   USACO21FEBG01 :   0
   USACO21FEBG02 :   0
-  USACO21JANG02 :   0
+  USACO21JANG02 :  60
 search:
   =.  : "(\w+) *: *\d+(?=\.$)"
   !0. : "(\w+) *: *(?!0$)\d+$"
