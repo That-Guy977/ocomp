@@ -1,65 +1,65 @@
 #include <iostream>
 #include <vector>
+#include <map>
+#include <set>
 #include <tuple>
 #include <cmath>
-#define EPSILON 0.0001
+#define EPSILON 0.000000001
+#define PI 3.14159265358979323846
 
 using namespace std;
 
-struct point {
-  int x, y;
+struct epsilondouble {
+  double value;
 
-  point(int x, int y): x(x), y(y) {}
+  epsilondouble(double value): value(value) {}
 
-  bool operator<(const point& other) const {
-    return x != other.x ? x < x : y < y;
+  bool operator==(const epsilondouble& other) const {
+    return abs(value - other.value) < EPSILON;
+  }
+  bool operator!=(const epsilondouble& other) const {
+    return !(*this == other);
+  }
+  bool operator<(const epsilondouble& other) const {
+    if (*this == other) return 0;
+    return value < other.value;
   }
 };
 
 struct pvec {
-  double r, theta;
+  epsilondouble r, theta;
 
-  pvec(double r, double theta): r(r), theta(theta) {};
+  pvec(double r, double theta): r(r), theta(theta) {
+    if (theta <= 0) this->theta.value += PI;
+  }
 
   bool operator==(const pvec& other) const {
-    return abs(r - other.r) < EPSILON && abs(theta - other.theta) < EPSILON;
+    return r == other.r && theta == other.theta;
+  }
+  bool operator<(const pvec& other) const {
+    if (r != other.r) return r < other.r;
+    return theta < other.theta;
   }
 };
 
 int main() {
   int n;
   cin >> n;
-  vector<pair<point, vector<pvec>>> plot;
+  vector<pair<int, int>> plot;
   for (int i = 0; i < n; i++) {
     int x, y;
     cin >> x >> y;
-    plot.push_back({ { x, y }, {} });
+    plot.emplace_back(x, y);
   }
-  for (int i = 0; i < n; i++) {
-    for (int j = i + 1; j < n; j++) {
-      auto [x1, y1] = plot[i].first;
-      auto [x2, y2] = plot[j].first;
-      plot[i].second.emplace_back(hypot(x1 - x2, y1 - y2), atan2(y1 - y2, x1 - x2));
-    }
-  }
+  map<pvec, int> edges;
   int count = 0;
   for (int i = 0; i < n; i++) {
-    vector<pvec>& pA = plot[i].second;
-    for (int j = 0; j < pA.size(); j++) {
-      pvec& b = pA[j];
-      for (int k = j + 1; k < pA.size(); k++) {
-        vector<pvec>& pC = plot[k+i].second;
-        for (int l = 0; l < pC.size(); l++) {
-          pvec& d = pC[l];
-          if (b == d) {
-            count++;
-            goto next;
-          }
-        }
-      }
-      next:;
+    for (int j = i + 1; j < n; j++) {
+      auto [x1, y1] = plot[i];
+      auto [x2, y2] = plot[j];
+      count += edges[{ hypot(x1 - x2, y1 - y2), atan2(y1 - y2, x1 - x2) }]++;
     }
   }
-  cout << count << endl;
+  cout << count / 2 << endl;
   return 0;
 }
