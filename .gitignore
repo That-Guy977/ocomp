@@ -1,7 +1,9 @@
-.temp*
-.DS_Store
-$
+main.c
+main.cpp
+temp.c
+temp.cpp
+.main
 in
 out
-main.cpp
-.main
+.temp*
+.DS_Store
