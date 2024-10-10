@@ -1,0 +1,57 @@
+#!/bin/bash
+
+lang=${1:-$lang}
+ctx="."
+
+g() {
+  if [[ $lang == c ]]; then
+    echo "gcc"
+  elif [[ $lang == .cpp ]]; then
+    echo "g++"
+  else
+    echo "false"
+    return 1
+  fi
+}
+
+"$"() {
+  file="${1:-main}"
+  $(g) -o .main "$file.$lang" && ./.main < in > out
+  touch .main
+  rm .main
+}
+
+~() {
+  file="${1:-main}"
+  echo -n > in
+  echo -n > out
+  cp "template.$lang" "$file.$lang"
+}
+
+@() {
+  mkdir -p "$ctx/code"
+  mkdir -p "$ctx/task"
+  cp -n template.yaml "$ctx/progress.yaml"
+  if [[ -z $1 ]]; then
+    return 1;
+  fi
+  cp "main.$lang" "$ctx/code/$1.$lang"
+}
+
++() {
+  if [[ -z $1 ]]; then
+    file="temp"
+  else
+    file="${1}_"
+  fi
+  while [[ -f "$file.$lang" ]]; do
+    file="${file}_"
+  done
+  cp "main.$lang" "$file.$lang"
+}
+
+-() {
+  rm "${1:-temp}.$lang"
+}
+
+g > /dev/null || return 1
