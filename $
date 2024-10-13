@@ -1,7 +1,7 @@
 #!/bin/bash
 
 lang=${1:-$lang}
-ctx=${ctx:-"."}
+ctx=${2:-${ctx:-"."}}
 
 g() {
   if [[ $lang == c ]]; then
