@@ -29,10 +29,14 @@ g() {
 }
 
 ~() {
-  file="${1:-main}"
+  if [[ -z $1 ]]; then
+    file=template
+  else
+    file="$ctx/$1"
+  fi
   echo -n > in
   echo -n > out
-  cp "template.$lang" "$file.$lang"
+  cp "$file.$lang" "main.$lang"
 }
 
 @() {
@@ -51,14 +55,14 @@ g() {
   else
     file="${1}_"
   fi
-  while [[ -f "$file.$lang" ]]; do
+  while [[ -f "$ctx/$file.$lang" ]]; do
     file="${file}_"
   done
-  cp "main.$lang" "$file.$lang"
+  cp "main.$lang" "$ctx/$file.$lang"
 }
 
 -() {
-  rm "${1:-temp}.$lang"
+  rm "$ctx/${1:-temp}.$lang"
 }
 
 g > /dev/null || return 1
