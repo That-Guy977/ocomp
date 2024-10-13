@@ -17,10 +17,12 @@ g() {
 "$"() {
   file="${1:-main}"
   $(g) -o .main "$file.$lang"
-  if [[ "$?" == 0 && -s in ]]; then
-    ./.main < in > out
-  else
-    ./.main
+  if [[ -f .main ]]; then
+    if [[ -s in ]]; then
+      ./.main < in > out
+    else
+      ./.main
+    fi
   fi
   touch .main
   rm .main
