@@ -46,7 +46,7 @@ g() {
   if [[ -z $1 ]]; then
     return 1;
   fi
-  cp "main.$lang" "$ctx/code/$1.$lang"
+  cp -n "main.$lang" "$ctx/code/$1.$lang"
 }
 
 +() {
