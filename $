@@ -14,7 +14,7 @@ g() {
   fi
 }
 
-"$"() {
+'$'() {
   file="${1:-main}"
   $(g) -o .main "$file.$lang"
   if [[ -f .main ]]; then
@@ -28,7 +28,7 @@ g() {
   rm .main
 }
 
-~() {
+,() {
   if [[ -z $1 ]]; then
     file=template
   else
