@@ -5,11 +5,11 @@ ctx=${2:-${ctx:-"."}}
 
 g() {
   if [[ $lang == c ]]; then
-    echo "gcc"
+    echo gcc -std=c17
   elif [[ $lang == cpp ]]; then
-    echo "g++"
+    echo g++ -std=c++17
   else
-    echo "false"
+    echo false
     return 1
   fi
 }
