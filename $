@@ -6,7 +6,7 @@ ctx=${2:-${ctx:-"."}}
 g() {
   if [[ $lang == c ]]; then
     echo "gcc"
-  elif [[ $lang == .cpp ]]; then
+  elif [[ $lang == cpp ]]; then
     echo "g++"
   else
     echo "false"
