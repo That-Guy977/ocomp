@@ -2,10 +2,8 @@ main.c
 main.cpp
 temp.c
 temp.cpp
-.*.c
-.*.cpp
-.main
+.*
 in
 out
-.temp*
-.DS_Store
+
+!.git*
