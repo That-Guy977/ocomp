@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAX(a, b) (a > b ? a : b)
 
-int solve(int, int, int n, int[n], int[n]);
+int solve(int, int, int, int[*], int[*]);
 
 int main() {
   int n, k;
@@ -11,7 +11,7 @@ int main() {
   for (int i = 0; i < n; i++) {
     scanf("%d %d", &x[i], &y[i]);
   }
-  printf("%d", solve(0, k, n, x, y));
+  printf("%d\n", solve(0, k, n, x, y));
   return 0;
 }
 
