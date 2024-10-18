@@ -1,9 +1,9 @@
 main.c
 main.cpp
-temp.c
-temp.cpp
+temp*
 .*
 in
 out
 
+!template*
 !.git*
