@@ -3,7 +3,7 @@
 lang=${1:-$lang}
 ctx=${2:-${ctx:-"."}}
 
-g() {
+function g {
   if [[ $lang == c ]]; then
     echo gcc -std=c17
   elif [[ $lang == cpp ]]; then
@@ -14,7 +14,7 @@ g() {
   fi
 }
 
-'$'() {
+function $ {
   file="${1:-main}"
   $(g) -o .main "$file.$lang"
   if [[ -f .main ]]; then
@@ -28,7 +28,7 @@ g() {
   rm .main
 }
 
-,() {
+function , {
   if [[ -z $1 ]]; then
     file=template
   else
@@ -39,7 +39,7 @@ g() {
   cp "$file.$lang" "main.$lang"
 }
 
-@() {
+function @ {
   mkdir -p "$ctx/code"
   mkdir -p "$ctx/task"
   cp -n template.yaml "$ctx/progress.yaml"
@@ -49,7 +49,7 @@ g() {
   cp -n "main.$lang" "$ctx/code/$1.$lang"
 }
 
-+() {
+function + {
   if [[ -z $1 ]]; then
     file="temp"
   else
@@ -61,7 +61,7 @@ g() {
   cp "main.$lang" "$ctx/$file.$lang"
 }
 
--() {
+function - {
   rm "$ctx/${1:-temp}.$lang"
 }
 
