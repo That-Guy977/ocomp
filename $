@@ -1,5 +1,3 @@
-#!/bin/bash
-
 lang=${1:-$lang}
 ctx=${2:-${ctx:-"."}}
 
